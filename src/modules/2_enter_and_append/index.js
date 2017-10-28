@@ -26,6 +26,10 @@ class EnterAndAppend extends Component {
         return 'purple'
       })
       .attr('stroke', '#fff')
+
+      // Logging these things can be useful for inspection / debugging
+      console.log('Nodes', rects.nodes())
+      console.log('Data', rects.data())
   }
   
   render() {
