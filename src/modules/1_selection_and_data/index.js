@@ -19,11 +19,11 @@ class SelectionAndData extends Component {
   render() {
     return (
       <svg>
-        <rect class='rect-1' />
-        <rect class='rect-1' />
-        <rect class='rect-1' />
-        <rect class='rect-1' />
-        <rect class='rect-1' />
+        <rect className='rect-1' />
+        <rect className='rect-1' />
+        <rect className='rect-1' />
+        <rect className='rect-1' />
+        <rect className='rect-1' />
       </svg>
     )
   }
