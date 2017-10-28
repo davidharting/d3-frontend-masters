@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './assets/d3_logo.png';
 import './App.css';
+import SelectionAndData from './modules/1_selection_and_data';
 
 class App extends Component {
   render() {
@@ -13,6 +14,8 @@ class App extends Component {
         <p className="App-intro">
           A place to hack while working through Frontend Masters' D3 class.
         </p>
+        <h2>1. Selection and Data</h2>
+        <SelectionAndData />
       </div>
     );
   }
