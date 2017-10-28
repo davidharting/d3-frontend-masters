@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './assets/d3_logo.png';
+import logo from './assets/d3_logo.svg';
 import './App.css';
 import SelectionAndData from './modules/1_selection_and_data';
 import EnterAndAppend from './modules/2_enter_and_append';
