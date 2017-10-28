@@ -6,7 +6,7 @@ class SelectionAndData extends Component {
     const rectWidth = 50
     const height = 200
     var data = [100, 250, 175, 200, 120]
-    d3.selectAll('rect')
+    d3.selectAll('.rect-1')
       .data(data)
       .attr('x', (d, i) => i * rectWidth)
       .attr('y', d => height - d)
@@ -19,11 +19,11 @@ class SelectionAndData extends Component {
   render() {
     return (
       <svg>
-        <rect />
-        <rect />
-        <rect />
-        <rect />
-        <rect />
+        <rect class='rect-1' />
+        <rect class='rect-1' />
+        <rect class='rect-1' />
+        <rect class='rect-1' />
+        <rect class='rect-1' />
       </svg>
     )
   }
