@@ -83,6 +83,7 @@ class ScalesAndAxes extends Component {
 
     const xAxis = d3.axisBottom()
       .scale(xScale)
+      .tickFormat(month => month.slice(0, 3).toUpperCase())      
 
     // Place the axis inside a group element so that it can
     // be easily transformed
