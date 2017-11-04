@@ -45,7 +45,7 @@ const barWidth = chartWidth / data.length - 3
 
 const margin = {
   top: 0,
-  bottom: 10,
+  bottom: 20,
   left: 40,
   right: 0
 }
@@ -81,6 +81,9 @@ class ScalesAndAxes extends Component {
     const yAxis = d3.axisLeft()
       .scale(yScale)
 
+    const xAxis = d3.axisBottom()
+      .scale(xScale)
+
     // Place the axis inside a group element so that it can
     // be easily transformed
     svg.append('g')
@@ -90,6 +93,10 @@ class ScalesAndAxes extends Component {
       // i.e., we are drawing all SVG necessary to create axis inside
       // the <g> we just appended (and thus selected)
       .call(yAxis)
+
+    svg.append('g')
+      .attr('transform', `translate(0, ${chartHeight - margin.bottom})`)
+      .call(xAxis)
   }
   
   render() {
