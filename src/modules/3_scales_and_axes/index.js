@@ -45,7 +45,7 @@ const barWidth = chartWidth / data.length - 3
 
 const margin = {
   top: 0,
-  bottom: 0,
+  bottom: 10,
   left: 40,
   right: 0
 }
@@ -54,10 +54,12 @@ const xScale = d3.scaleBand()
   .domain(data.map(data => data.month))
   .range([margin.left, chartWidth - margin.right])
 
-const heightScale = d3.scaleLinear()
+const yScale = d3.scaleLinear()
   .domain(d3.extent(data, d => d.avgTemp))
+  // If we wanted yAxis to start at 0
+  // .domain([0, d3.max(data, d => d.avgTemp)])
   // Remember, y=0 is the top of the SVG!
-  .range([0, chartHeight])
+  .range([chartHeight - margin.bottom, 0 + margin.top])
 
 class ScalesAndAxes extends Component {
   componentDidMount() {
@@ -69,12 +71,25 @@ class ScalesAndAxes extends Component {
       .data(data).enter()
       .append('rect')
         .attr('x', d => xScale(d.month))
-        .attr('height', d => heightScale(d.avgTemp))
-        .attr('y', d => chartHeight - margin.bottom - heightScale(d.avgTemp))
+        .attr('height', d => chartHeight - margin.bottom - yScale(d.avgTemp))
+        .attr('y', d => yScale(d.avgTemp))
         .attr('width', barWidth)
         .attr('fill', 'blue')
         .attr('class', 'rect-3')
         .attr('stroke', '#ffffff')
+    
+    const yAxis = d3.axisLeft()
+      .scale(yScale)
+
+    // Place the axis inside a group element so that it can
+    // be easily transformed
+    svg.append('g')
+      .attr('transform', `translate(${margin.left}, 0)`)
+      // selection.call(yAxis) is the same as yAxis(selection)
+      // An axis is created within the selection
+      // i.e., we are drawing all SVG necessary to create axis inside
+      // the <g> we just appended (and thus selected)
+      .call(yAxis)
   }
   
   render() {
