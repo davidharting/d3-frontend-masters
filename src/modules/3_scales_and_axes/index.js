@@ -40,7 +40,7 @@ const data = [
 ]
 
 const chartWidth = 500
-const chartHeight = 500
+const chartHeight = 300
 const barWidth = chartWidth / data.length - 3
 
 const margin = {
